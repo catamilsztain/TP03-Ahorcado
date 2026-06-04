@@ -1,16 +1,17 @@
 ﻿@{
     ViewData["Title"] = "Home Page";
-    string oculta = "";
-}
+    }
 
 <h1>¡Bienvenidos al ahorcado game!</h1>
 <p>Ahorcado game es un juego donde tu objetivo es encontrar la palabra sectreta, teniendo 10 intentos. La palabra a adivinar tiene un minimo de 8 caracteres, y se debe escribir en mayúscula. ¡Suerte!</p>
 
-<div class = "PalabraOculta">
-    @for (int i = 0; i < ViewBag.ocultis.Length; i++){
-            oculta += " _ ";
-    }
-    <h1>@oculta</h1>
+<div id="mostrar">
+    <h1></h1>
 </div>
-
-<script src="wwwroot/js/site.js"></script>
+<h1>Intentos restantes: </h1>
+<div>
+    <h1 id="Resultado" >xd</h1>
+</div>
+<input id="PalabraOculta" type="hidden" name="palabra" value= @ViewBag.ocultis/>
+<input id="Arriesgo" maxlenght="1"type="text" name="intento" placeholder="Ingrese su arriesgo"/>
+<button id= "Arriesgar" onclick = "ArriesgarLetra()" >Enviar</button>
