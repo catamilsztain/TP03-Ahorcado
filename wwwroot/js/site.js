@@ -3,23 +3,46 @@
 
 // Write your JavaScript code.
 
-let palabraOculta = document.getElementById("PalabraOculta").value;
-const mostrar = document.getElementById("mostrar");
-const resultado = document.getElementById("Resultado");
-for (item in palabraOculta){
-    mostrar.innerHTML += " _ ";
+let intentos = 10;
+let palabraOculta = "";
+
+let palabra = document.getElementById("ocultis").value;
+
+for(let i = 0; i < palabra.length; i++)
+{
+    palabraOculta += "_";
 }
 
-function ArriesgarLetra(){
-    console.log(palabraOculta);
-    let arriesgo = document.getElementById("Arriesgo").value;
-    let intentos = 0;
-    if(intentos < 10){
-        for(item in palabraOculta){
-            if(arriesgo == item){
-                item.innerHTML = arriesgo;
-            }
+function ArriesgarLetra()
+{
+    let letra = document.getElementById("letra").value.toUpperCase();
+    let palabra = document.getElementById("ocultis").value;
+    let nuevaPalabra = "";
+
+    if(intentos > 0){
+        for(let i = 0; i < palabra.length; i++)
+    {
+        if(palabra[i] == letra || palabraOculta[i] != "_")
+        {
+            nuevaPalabra += palabra[i];
+            intentos = intentos + 1;
+        }
+        else
+        {
+            nuevaPalabra += "_";
         }
     }
+    }
+    else{
+        mensaje.innerHTML= "no tenes más intentos bobi";
+    }
+    
+    intentos = intentos -1;
+    intento.innerHTML = intentos; 
+    
+    palabraOculta = nuevaPalabra;
+
+    document.getElementById("mostrar").innerHTML = palabraOculta;
 }
 
+document.getElementById("mostrar").innerHTML = palabraOculta;

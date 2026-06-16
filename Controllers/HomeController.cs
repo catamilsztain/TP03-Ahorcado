@@ -16,7 +16,8 @@ public class HomeController : Controller
 
     public IActionResult Index()
     {
-        ViewBag.ocultis = ahorcado1.ObtenerPalabra();
+        PalabrasAhorcado juego = new PalabrasAhorcado();
+        ViewBag.Palabra = juego.ObtenerPalabra();
         return View();
     }
 
